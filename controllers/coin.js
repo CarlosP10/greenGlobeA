@@ -1,14 +1,19 @@
-const clase = require('../models/clase');
+const coin = require('../models/coin');
 
 exports.create = (req, res) => {
     
-    let claseNueva = new clase({
+    let coinNueva = new coin({
         name: req.body.name,
-        uvs: req.body.uvs,
-        descripcion: req.body.descripcion
+        country: req.body.coutry,
+        value: req.body.value,
+        value_us: req.body.value_us,
+        year: req.body.year,
+        review: req.body.review,
+        isAvailable: req.body.isAvailable,
+        img: req.body.img
     });
 
-    claseNueva.save()
+    coinNueva.save()
     .then(data => {
         res.send({
             ok:true,
@@ -18,7 +23,7 @@ exports.create = (req, res) => {
     .catch(err => {
         return res.status(500).send({
             ok:false,
-            message: "Internal error creating class.",
+            message: "Internal error creating coin.",
             error: err
         });
     });
@@ -26,27 +31,32 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req,res) => {
-    clase.find()
-    .then(clases => {
+    coin.find()
+    .then(coins => {
         res.send({
             ok:true,
-            clases: clases
+            coins: coins
         });
     })
     .catch(err => {
         return res.status(500).send({
             ok:false,
-            message:"Internal error finding all classes.",
+            message:"Internal error finding all coins.",
             error: err
         });
     })
 }
 
 exports.update = (req,res) => {
-    clase.findByIdAndUpdate(req.params.claseId, {
+    coin.findByIdAndUpdate(req.params.coinId, {
         name: req.body.name,
-        uvs:req.body.uvs,
-        descripcion: req.body.descripcion
+        country: req.body.coutry,
+        value: req.body.value,
+        value_us: req.body.value_us,
+        year: req.body.year,
+        review: req.body.review,
+        isAvailable: req.body.isAvailable,
+        img: req.body.img
     }, {new:true})
     .then(updated => {
         res.send({
@@ -57,14 +67,14 @@ exports.update = (req,res) => {
     .catch(err => {
         return res.status(500).send({
             ok:false,
-            message:"Internal error updating class.",
+            message:"Internal error updating coin.",
             error:err
         });
     });
 }
 
 exports.delete = (req,res) => {
-    clase.findByIdAndDelete(req.params.claseId)
+    coin.findByIdAndDelete(req.params.coinId)
     .then(deleted => {
         res.send({
             ok:true,
@@ -74,7 +84,7 @@ exports.delete = (req,res) => {
     .catch(err => {
         return res.status(500).send({
             ok:false,
-            message: "Internal error deleting class",
+            message: "Internal error deleting coin",
             error:err
         });
     });

@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 //including routes
 var indexRouter = require('./routes/index');
-var claseRouter = require('./routes/clase');
+var coinRouter = require('./routes/coin');
 
 var app = express();
 
@@ -23,13 +23,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Use routes
 app.use('/', indexRouter);
-app.use('/clase', claseRouter);
+app.use('/coin', coinRouter);
 
 
 
 
 //creando base de datos
-mongoose.connect('mongodb://localhost:27017/practica3', {useNewUrlParser:true})
+mongoose.connect('mongodb://localhost:27017/coin', {useNewUrlParser:true})
 .then(()=> {
   console.log("Connection to database succesful!");
 })

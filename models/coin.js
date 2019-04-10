@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 var coinModel = mongoose.Schema({
     name: String,
-    country: String,
+    country:[{type: String}],
     value: Number,
     value_us: Number,
     year: Number,

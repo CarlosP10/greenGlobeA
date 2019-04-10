@@ -27,7 +27,7 @@ app.use('/coin', coinRouter);
 
 
 //creando base de datos
-mongoose.connect('mongodb://carlos10:Carlos100@ds129393.mlab.com:29393/coin', {useNewUrlParser:true})
+mongoose.connect('mongodb://teamcoin:hola10@ds129393.mlab.com:29393/coin', {useNewUrlParser:true})
 .then(()=> {
   console.log("Connection to database succesful!");
 })

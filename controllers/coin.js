@@ -4,7 +4,7 @@ exports.create = (req, res) => {
     
     let coinNueva = new coin({
         name: req.body.name,
-        country: req.body.coutry,
+        country: req.body.country,
         value: req.body.value,
         value_us: req.body.value_us,
         year: req.body.year,

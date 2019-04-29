@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 var coinModel = mongoose.Schema({
     name: String,
-    country:String,
+    country: String,
     value: Number,
     value_us: Number,
     year: Number,
     review: String,
-    isAvailable: Boolean,
+    isAvailable: Number,
     img: String
 });
 

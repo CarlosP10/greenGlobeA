@@ -7,7 +7,7 @@ var coinModel = mongoose.Schema({
     value_us: Number,
     year: Number,
     review: String,
-    isAvailable: Number,
+    isAvailable: Boolean,
     img: String
 });
 

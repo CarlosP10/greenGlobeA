@@ -61,7 +61,7 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req,res) => {
-    coin.findByIdAndDelete(req.params.greenId)
+    green.findByIdAndDelete(req.params.greenId)
     .then(deleted => {
         res.send({
             ok:true,

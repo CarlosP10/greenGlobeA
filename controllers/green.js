@@ -29,19 +29,10 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-    green.find()
-        .then(green => {
-            res.send({
-                green
-            });
-        })
-        .catch(err => {
-            return res.status(500).send({
-                ok: false,
-                message: "Internal error finding all greens.",
-                error: err
-            });
-        })
+    green.find({}, function(err,green){
+        if(err) res.send(err)
+        res.json(green)
+    })
 }
 
 exports.update = (req, res) => {
